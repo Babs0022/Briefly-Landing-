@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrieflyAI - Your AI Copilot for Instant Clarity</title>
+    <meta name="description" content="BrieflyAI helps you brainstorm, create, and build with AI-powered summaries, content generation, and smart assistance.">
+
+    <!-- Favicon - Replace with your own -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Inline CSS - This is where your 1000+ lines of CSS would go -->
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif; /* Consider linking Google Fonts */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #007bff; /* BrieflyAI primary color */
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        .cta-button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #e0f2f7, #c1e4f3); /* Light blue gradient */
+            color: #333;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+
+        .hero .cta-group a {
+            margin: 0 10px;
+        }
+
+        /* General Section Styles */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section:nth-of-type(even) {
+            background-color: #f0f8ff; /* Lightest blue for alternating sections */
+        }
+
+        .section h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .section p.description {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            color: #666;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-item .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .feature-item p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        /* How it Works */
+        .steps-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step-item {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 300px;
+            text-align: center;
+        }
+
+        .step-item .step-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 15px;
+            display: inline-block;
+            background-color: #e0f2f7;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .step-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .step-item p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        /* Testimonials */
+        .testimonials-slider {
+            display: flex;
+            overflow-x: auto; /* For potential JS slider, or just flex wrap */
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 30px;
+            padding-bottom: 20px;
+            justify-content: center; /* Center testimonials if few */
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            min-width: 350px;
+            max-width: 450px;
+            text-align: left;
+            scroll-snap-align: start;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .testimonial-title {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* Pricing (Conceptual) */
+        .pricing-plans {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 320px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .pricing-card.popular {
+            border-color: #007bff;
+            box-shadow: 0 6px 20px rgba(0,123,255,0.2);
+        }
+
+        .pricing-card h3 {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price {
+            font-size: 3em;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price span {
+            font-size: 0.5em;
+            font-weight: normal;
+            color: #777;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 15px;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-card ul li::before {
+            content: '✓'; /* Checkmark icon */
+            color: #28a745;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-items {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f5f5f5;
+        }
+
+        .faq-question .arrow {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 25px 20px;
+            font-size: 1em;
+            color: #666;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        /* JavaScript will add this class */
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust based on max content */
+            padding: 0 25px 20px;
+        }
+
+        .faq-item.active .faq-question .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Call to Action - Final */
+        .cta-final {
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: #ffffff;
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-final h2 {
+            color: #ffffff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-final p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #333;
+            color: #bbb;
+            padding: 60px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+            margin: 20px;
+        }
+
+        .footer-col h3 {
+            color: #ffffff;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p, .footer-col ul {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #007bff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #bbb;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* Responsive Design (Basic examples) */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .section h2 {
+                font-size: 2.2em;
+            }
+            .nav-links {
+                display: none; /* Or implement a mobile menu toggle */
+            }
+            .navbar {
+                justify-content: center; /* Center logo if no nav */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .cta-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .cta-group a {
+                width: 80%; /* Make buttons full width */
+                margin: 0 auto;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .features-grid, .steps-grid, .pricing-plans, .testimonials-slider {
+                grid-template-columns: 1fr; /* Stack items */
+                flex-direction: column; /* Stack for flex containers */
+                align-items: center;
+            }
+            .feature-item, .step-item, .testimonial-card, .pricing-card {
+                width: 90%;
+                max-width: 400px; /* Constrain width on smaller screens */
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-col {
+                margin: 15px 0;
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="#" class="logo">BrieflyAI</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#cta-final" class="cta-button">Get Started Free</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>BrieflyAI: Your AI Copilot for Instant Clarity & Creativity</h1>
+            <p>Transform information overload into actionable insights. BrieflyAI empowers you to brainstorm, create, and build faster than ever before.</p>
+            <div class="cta-group">
+                <a href="#signup" class="cta-button">Start Your Free Trial Today</a>
+                <a href="#learn-more" class="cta-button" style="background-color: #6c757d;">Learn More</a>
+            </div>
+            <!-- Placeholder for hero image/video below CTA -->
+            <div class="hero-image-placeholder" style="margin-top: 60px; background-color: rgba(255,255,255,0.7); padding: 30px; border-radius: 10px; height: 350px; display: flex; align-items: center; justify-content: center; color: #555; font-size: 1.2em;">
+                <p>[ Placeholder for an engaging product screenshot or demo video of BrieflyAI in action ]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section id="problem-solution" class="section">
+        <div class="container">
+            <h2>Tired of Information Overload?</h2>
+            <p class="description">In today's fast-paced world, too much information can be as paralyzing as too little. BrieflyAI cuts through the noise, giving you exactly what you need, precisely when you need it.</p>
+
+            <div class="problem-solution-grid" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 50px;">
+                <div class="problem-statement" style="flex: 1; min-width: 300px; max-width: 500px; text-align: left; background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                    <h3>The Problem:</h3>
+                    <ul>
+                        <li style="margin-bottom: 15px;">Overwhelmed by long articles, reports, or emails?</li>
+                        <li style="margin-bottom: 15px;">Struggling to quickly grasp key points from complex documents?</li>
+                        <li style="margin-bottom: 15px;">Spending hours brainstorming ideas or writing first drafts?</li>
+                        <li style="margin-bottom: 15px;">Feeling unproductive due to constant context switching?</li>
+                    </ul>
+                </div>
+                <div class="solution-statement" style="flex: 1; min-width: 300px; max-width: 500px; text-align: left; background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 5px solid #007bff;">
+                    <h3>The BrieflyAI Solution:</h3>
+                    <ul>
+                        <li style="margin-bottom: 15px;"><strong>Instant Summaries:</strong> Get the core message of any text in seconds.</li>
+                        <li style="margin-bottom: 15px;"><strong>Creative Generation:</strong> Generate ideas, outlines, and full drafts effortlessly.</li>
+                        <li style="margin-bottom: 15px;"><strong>Smart Q&A:</strong> Ask anything about your documents and get precise answers.</li>
+                        <li style="margin-bottom: 15px;"><strong>Boosted Productivity:</strong> Focus on what matters, let AI handle the rest.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2>Key Features That Empower You</h2>
+            <p class="description">BrieflyAI is packed with powerful tools designed to enhance your workflow and spark your creativity.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">⚡</span>
+                    <h3>Instant Text Summarization</h3>
+                    <p>Quickly distill long articles, reports, emails, or notes into concise, easy-to-digest summaries. Understand the core message without reading every word.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">✍️</span>
+                    <h3>Content Generation & Expansion</h3>
+                    <p>From blog post outlines to social media captions, generate creative content ideas or expand on existing drafts with AI-powered suggestions.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🔎</span>
+                    <h3>Smart Document Q&A</h3>
+                    <p>Upload documents (PDFs, Word files, etc.) and ask BrieflyAI questions. Get direct answers and extract specific information without manual searching.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">💡</span>
+                    <h3>Brainstorming & Idea Generation</h3>
+                    <p>Overcome creative blocks. BrieflyAI can generate fresh ideas for any topic, helping you kickstart projects or solve problems.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🎯</span>
+                    <h3>Customizable Output Formats</h3>
+                    <p>Choose the length, tone, and style of the generated content or summaries to perfectly match your needs and audience.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🌐</span>
+                    <h3>Multi-Language Support</h3>
+                    <p>Work seamlessly across different languages. BrieflyAI understands and generates content in various linguistic contexts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section">
+        <div class="container">
+            <h2>How BrieflyAI Works In 3 Simple Steps</h2>
+            <p class="description">It's designed to be intuitive and efficient, getting you results in moments.</p>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Input Your Content</h3>
+                    <p>Paste text, upload a document, or provide a URL for BrieflyAI to process.</p>
+                    <div class="step-image-placeholder" style="width: 100%; height: 150px; background-color: #f0f0f0; margin-top: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888;">[ Screenshot: Input Field ]</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Choose Your AI Task</h3>
+                    <p>Select what you want BrieflyAI to do: summarize, generate, or answer questions.</p>
+                    <div class="step-image-placeholder" style="width: 100%; height: 150px; background-color: #f0f0f0; margin-top: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888;">[ Screenshot: Task Selection ]</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Get Instant Results</h3>
+                    <p>Receive high-quality, relevant output tailored to your request in seconds.</p>
+                    <div class="step-image-placeholder" style="width: 100%; height: 150px; background-color: #f0f0f0; margin-top: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888;">[ Screenshot: Output Display ]</div>
+                </div>
+            </div>
+            <a href="#signup" class="cta-button" style="margin-top: 60px;">Try BrieflyAI Now</a>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="section">
+        <div class="container">
+            <h2>Who Can Benefit from BrieflyAI?</h2>
+            <p class="description">BrieflyAI is a versatile tool for anyone looking to boost productivity and creativity.</p>
+            <div class="use-cases-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; text-align: left;">
+                <div class="use-case-card" style="background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.07);">
+                    <h3 style="color: #007bff; font-size: 1.4em; margin-bottom: 15px;">Students & Researchers</h3>
+                    <p>Quickly summarize academic papers, extract key information for assignments, and generate study notes.</p>
+                </div>
+                <div class="use-case-card" style="background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.07);">
+                    <h3 style="color: #007bff; font-size: 1.4em; margin-bottom: 15px;">Marketers & Content Creators</h3>
+                    <p>Brainstorm campaign ideas, write compelling ad copy, generate blog post outlines, and repurpose content quickly.</p>
+                </div>
+                <div class="use-case-card" style="background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.07);">
+                    <h3 style="color: #007bff; font-size: 1.4em; margin-bottom: 15px;">Business Professionals</h3>
+                    <p>Summarize lengthy reports, analyze market trends, draft emails, and prepare meeting briefs in minutes.</p>
+                </div>
+                <div class="use-case-card" style="background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.07);">
+                    <h3 style="color: #007bff; font-size: 1.4em; margin-bottom: 15px;">Developers & Engineers</h3>
+                    <p>Understand complex documentation, generate code comments, and brainstorm solutions to technical challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <p class="description">Don't just take our word for it – hear from people who are already transforming their workflow with BrieflyAI.</p>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <p>"BrieflyAI has revolutionized how I process information. I can now digest research papers in minutes, saving countless hours!"</p>
+                    <p class="testimonial-author">- Dr. Emily White</p>
+                    <p class="testimonial-title">Senior Researcher, Tech Innovations Lab</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As a content marketer, generating fresh ideas used to be a struggle. BrieflyAI is my secret weapon for endless inspiration and efficient drafting."</p>
+                    <p class="testimonial-author">- Mark Chen</p>
+                    <p class="testimonial-title">Content Strategist, Digital Growth Co.</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The smart Q&A feature is a game-changer for our legal team. We find specific clauses in massive contracts almost instantly. Highly recommend!"</p>
+                    <p class="testimonial-author">- Sarah Jenkins</p>
+                    <p class="testimonial-title">Legal Associate, Global Law Firm</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I use BrieflyAI daily for summarizing emails and meeting notes. It keeps me organized and productive without feeling overwhelmed."</p>
+                    <p class="testimonial-author">- David Lee</p>
+                    <p class="testimonial-title">Project Manager, Creative Solutions</p>
+                </div>
+            </div>
+            <!-- Potential for slider navigation dots/arrows here via JS -->
+        </div>
+    </section>
+
+    <!-- Pricing Section (Conceptual) -->
+    <section id="pricing" class="section">
+        <div class="container">
+            <h2>Simple & Flexible Pricing</h2>
+            <p class="description">Choose the plan that best fits your needs, from individual use to team collaboration.</p>
+            <div class="pricing-plans">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0<span>/month</span></div>
+                    <p>Perfect for occasional use and trying out BrieflyAI.</p>
+                    <ul>
+                        <li>Limited daily summaries</li>
+                        <li>Basic content generation</li>
+                        <li>No document Q&A</li>
+                        <li>Community support</li>
+                    </ul>
+                    <a href="#signup" class="cta-button">Get Started Free</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>Pro</h3>
+                    <div class="price">$19<span>/month</span></div>
+                    <p>Ideal for individuals who need powerful AI assistance daily.</p>
+                    <ul>
+                        <li>Unlimited summaries</li>
+                        <li>Advanced content generation</li>
+                        <li>Document Q&A (50 uploads/month)</li>
+                        <li>Priority email support</li>
+                    </ul>
+                    <a href="#signup" class="cta-button">Choose Pro Plan</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Business</h3>
+                    <div class="price">$49<span>/month</span></div>
+                    <p>Designed for teams to collaborate and scale their productivity.</p>
+                    <ul>
+                        <li>Unlimited everything</li>
+                        <li>Document Q&A (200 uploads/month)</li>
+                        <li>Team collaboration features</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <a href="#signup" class="cta-button">Contact Sales</a>
+                </div>
+            </div>
+            <p style="margin-top: 40px; font-size: 0.9em; color: #777;">*Custom enterprise solutions available. <a href="#contact" style="color: #007bff; text-decoration: none;">Contact us</a> for details.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p class="description">Have questions? We've got answers. If you can't find what you're looking for, feel free to contact our support team.</p>
+            <div class="faq-items">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is BrieflyAI? <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>BrieflyAI is an AI-powered copilot designed to help you quickly summarize text, generate creative content, and answer questions from your documents. It aims to boost your productivity and streamline your workflow.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How accurate are the summaries? <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI models are highly advanced and trained on vast datasets, ensuring a high level of accuracy for summaries. We focus on extracting the most critical information while preserving the original context.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What file types can I upload for Q&A? <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>BrieflyAI supports various file types for document Q&A, including PDF, DOCX, TXT, and common image formats (for OCR). We are continuously expanding our supported formats.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my data private and secure? <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, data security and privacy are paramount. We use industry-standard encryption and strict privacy protocols to ensure your information is always protected. We do not store your content for training purposes unless explicitly opted-in.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer a free trial? <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a free tier that allows you to experience the core features of BrieflyAI. You can upgrade to a paid plan at any time for more extensive usage and advanced features.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Call to Action Section -->
+    <section id="cta-final" class="cta-final">
+        <div class="container">
+            <h2>Ready to Experience the Future of Productivity?</h2>
+            <p>Join thousands of users who are already transforming their work with BrieflyAI. Start your free trial today!</p>
+            <a href="#signup" class="cta-button" style="background-color: #ffffff; color: #007bff;">Start Your Free Trial Now</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-col company-info">
+                <h3>BrieflyAI</h3>
+                <p>Your AI Copilot for Instant Clarity & Creativity.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> <!-- Replace with actual icons if using font awesome -->
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col legal-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-info" id="contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:support@brieflyai.com" style="color: #bbb; text-decoration: none;">support@brieflyai.com</a></p>
+                <p>Address: 123 AI Avenue, Innovation City, CA 90210</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2023 BrieflyAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Inline JavaScript - This is where your JS would go -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const parentItem = question.closest('.faq-item');
+                parentItem.classList.toggle('active');
+
+                const answer = parentItem.querySelector('.faq-answer');
+                if (parentItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px'; // Set max-height dynamically
+                } else {
+                    answer.style.maxHeight = '0';
+                }
+            });
+        });
+
+        // Add any other interactive JS here, e.g., form validation, animations, etc.
+        // For social media icons, you'd typically link to a library like Font Awesome:
+        // <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        // If not using an external library, replace <i class="fab fa-..."></i> with SVG icons or simple text/images.
+    </script>
+
+</body>
+</html>
