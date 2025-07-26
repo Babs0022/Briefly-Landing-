@@ -28,7 +28,7 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <a href="#cta-final" class="cta-button">Get Started Free</a>
+            <a href="#signup" class="cta-button">Get Started Free</a>
         </div>
     </header>
 
@@ -38,7 +38,7 @@
             <h1>BrieflyAI: Your AI Copilot for Instant Clarity & Creativity</h1>
             <p>Transform information overload into actionable insights. BrieflyAI empowers you to brainstorm, create, and build faster than ever before.</p>
             <div class="cta-group">
-                <a href="#signup" class="cta-button">Start Your Free Trial Today</a>
+                <a href="#signup" class="cta-button signup-trigger">Start Your Free Trial Today</a>
                 <a href="#learn-more" class="cta-button" style="background-color: #6c757d;">Learn More</a>
             </div>
             <!-- Placeholder for hero image/video below CTA -->
@@ -72,6 +72,27 @@
                         <li style="margin-bottom: 15px;"><strong>Smart Q&A:</strong> Ask anything about your documents and get precise answers.</li>
                         <li style="margin-bottom: 15px;"><strong>Boosted Productivity:</strong> Focus on what matters, let AI handle the rest.</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="section">
+        <div class="container">
+            <h2>The Benefits of BrieflyAI</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Save Time</h3>
+                    <p>Reduce reading and research time by up to 80%. Get the information you need in a fraction of the time.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Boost Productivity</h3>
+                    <p>Automate tedious tasks like summarizing long documents, generating reports, and drafting emails. Focus on what's important.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Enhance Creativity</h3>
+                    <p>Overcome writer's block and generate new ideas with AI-powered brainstorming and content creation tools.</p>
                 </div>
             </div>
         </div>
@@ -142,7 +163,7 @@
                     <div class="step-image-placeholder" style="width: 100%; height: 150px; background-color: #f0f0f0; margin-top: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888;">[ Screenshot: Output Display ]</div>
                 </div>
             </div>
-            <a href="#signup" class="cta-button" style="margin-top: 60px;">Try BrieflyAI Now</a>
+            <a href="#signup" class="cta-button signup-trigger" style="margin-top: 60px;">Try BrieflyAI Now</a>
         </div>
     </section>
 
@@ -203,48 +224,54 @@
         </div>
     </section>
 
-    <!-- Pricing Section (Conceptual) -->
+    <!-- Pricing Section -->
     <section id="pricing" class="section">
         <div class="container">
             <h2>Simple & Flexible Pricing</h2>
             <p class="description">Choose the plan that best fits your needs, from individual use to team collaboration.</p>
-            <div class="pricing-plans">
-                <div class="pricing-card">
-                    <h3>Free</h3>
-                    <div class="price">$0<span>/month</span></div>
-                    <p>Perfect for occasional use and trying out BrieflyAI.</p>
-                    <ul>
-                        <li>Limited daily summaries</li>
-                        <li>Basic content generation</li>
-                        <li>No document Q&A</li>
-                        <li>Community support</li>
-                    </ul>
-                    <a href="#signup" class="cta-button">Get Started Free</a>
-                </div>
-                <div class="pricing-card popular">
-                    <h3>Pro</h3>
-                    <div class="price">$19<span>/month</span></div>
-                    <p>Ideal for individuals who need powerful AI assistance daily.</p>
-                    <ul>
-                        <li>Unlimited summaries</li>
-                        <li>Advanced content generation</li>
-                        <li>Document Q&A (50 uploads/month)</li>
-                        <li>Priority email support</li>
-                    </ul>
-                    <a href="#signup" class="cta-button">Choose Pro Plan</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Business</h3>
-                    <div class="price">$49<span>/month</span></div>
-                    <p>Designed for teams to collaborate and scale their productivity.</p>
-                    <ul>
-                        <li>Unlimited everything</li>
-                        <li>Document Q&A (200 uploads/month)</li>
-                        <li>Team collaboration features</li>
-                        <li>Dedicated support</li>
-                    </ul>
-                    <a href="#signup" class="cta-button">Contact Sales</a>
-                </div>
+            <div class="pricing-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Free</th>
+                            <th>Pro</th>
+                            <th>Business</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Daily Summaries</td>
+                            <td>10</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Content Generation</td>
+                            <td>Basic</td>
+                            <td>Advanced</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>Document Q&A</td>
+                            <td>-</td>
+                            <td>50 uploads/month</td>
+                            <td>200 uploads/month</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Community</td>
+                            <td>Priority Email</td>
+                            <td>Dedicated</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><a href="#signup" class="cta-button signup-trigger">Get Started Free</a></td>
+                            <td><a href="#signup" class="cta-button signup-trigger">Choose Pro Plan</a></td>
+                            <td><a href="#signup" class="cta-button signup-trigger">Contact Sales</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <p style="margin-top: 40px; font-size: 0.9em; color: #777;">*Custom enterprise solutions available. <a href="#contact" style="color: #007bff; text-decoration: none;">Contact us</a> for details.</p>
         </div>
@@ -300,12 +327,35 @@
         </div>
     </section>
 
+    <!-- Contact Form Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p class="description">Have a question or feedback? Fill out the form below and we'll get back to you as soon as possible.</p>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Final Call to Action Section -->
     <section id="cta-final" class="cta-final">
         <div class="container">
             <h2>Ready to Experience the Future of Productivity?</h2>
             <p>Join thousands of users who are already transforming their work with BrieflyAI. Start your free trial today!</p>
-            <a href="#signup" class="cta-button" style="background-color: #ffffff; color: #007bff;">Start Your Free Trial Now</a>
+            <a href="#signup" class="cta-button signup-trigger" style="background-color: #ffffff; color: #007bff;">Start Your Free Trial Now</a>
         </div>
     </section>
 
@@ -350,6 +400,29 @@
             <p>&copy; 2023 BrieflyAI. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Get Started with BrieflyAI</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="modal-name">Name</label>
+                    <input type="text" id="modal-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-email">Email</label>
+                    <input type="email" id="modal-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-password">Password</label>
+                    <input type="password" id="modal-password" name="password" required>
+                </div>
+                <button type="submit" class="cta-button">Create Account</button>
+            </form>
+        </div>
+    </div>
 
     <!-- External JavaScript -->
     <script src="script.js"></script>
