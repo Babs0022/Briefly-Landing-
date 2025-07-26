@@ -7,10 +7,10 @@
     <meta name="description" content="BrieflyAI helps you brainstorm, create, and build with AI-powered summaries, content generation, and smart assistance.">
 
     <!-- Favicon - Replace with your own -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -41,9 +41,14 @@
                 <a href="#signup" class="cta-button signup-trigger">Start Your Free Trial Today</a>
                 <a href="#learn-more" class="cta-button" style="background-color: #6c757d;">Learn More</a>
             </div>
-            <!-- Placeholder for hero image/video below CTA -->
-            <div class="hero-image-placeholder" style="margin-top: 60px; background-color: rgba(255,255,255,0.7); padding: 30px; border-radius: 10px; height: 350px; display: flex; align-items: center; justify-content: center; color: #555; font-size: 1.2em;">
-                <p>[ Placeholder for an engaging product screenshot or demo video of BrieflyAI in action ]</p>
+            <div class="live-demo-container">
+                <div class="demo-input-container">
+                    <textarea id="demo-input" placeholder="Paste your text here to see the magic..."></textarea>
+                    <button id="summarize-btn" class="cta-button">Summarize</button>
+                </div>
+                <div class="demo-output-container">
+                    <div id="demo-output" class="demo-output"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -148,19 +153,19 @@
                     <div class="step-number">1</div>
                     <h3>Input Your Content</h3>
                     <p>Paste text, upload a document, or provide a URL for BrieflyAI to process.</p>
-                    <div class="step-image-placeholder" style="width: 100%; height: 150px; background-color: #f0f0f0; margin-top: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888;">[ Screenshot: Input Field ]</div>
+                    <img src="/images/step1.png" alt="Input Content" class="step-image">
                 </div>
                 <div class="step-item">
                     <div class="step-number">2</div>
                     <h3>Choose Your AI Task</h3>
                     <p>Select what you want BrieflyAI to do: summarize, generate, or answer questions.</p>
-                    <div class="step-image-placeholder" style="width: 100%; height: 150px; background-color: #f0f0f0; margin-top: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888;">[ Screenshot: Task Selection ]</div>
+                    <img src="/images/step2.png" alt="Choose Task" class="step-image">
                 </div>
                 <div class="step-item">
                     <div class="step-number">3</div>
                     <h3>Get Instant Results</h3>
                     <p>Receive high-quality, relevant output tailored to your request in seconds.</p>
-                    <div class="step-image-placeholder" style="width: 100%; height: 150px; background-color: #f0f0f0; margin-top: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888;">[ Screenshot: Output Display ]</div>
+                    <img src="/images/step3.png" alt="Get Results" class="step-image">
                 </div>
             </div>
             <a href="#signup" class="cta-button signup-trigger" style="margin-top: 60px;">Try BrieflyAI Now</a>
@@ -210,7 +215,7 @@
                     <p class="testimonial-title">Content Strategist, Digital Growth Co.</p>
                 </div>
                 <div class="testimonial-card">
-                    <p>"The smart Q&A feature is a game-changer for our legal team. We find specific clauses in massive contracts almost instantly. Highly recommend!"</p>
+                    <p>"The smart Q&A feature is a game-changer for our legal team. We find specific clauses in in massive contracts almost instantly. Highly recommend!"</p>
                     <p class="testimonial-author">- Sarah Jenkins</p>
                     <p class="testimonial-title">Legal Associate, Global Law Firm</p>
                 </div>
@@ -425,7 +430,7 @@
     </div>
 
     <!-- External JavaScript -->
-    <script src="script.js"></script>
+    <script type="module" src="/js/main.js"></script>
 
 </body>
 </html>
